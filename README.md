@@ -19,7 +19,7 @@ cd beamer_toolkit-master
 
 don't forget to install the required packages.
 
-- latex
+- latex (texlive)
 - texlive-extra-utils
 - xsel
 - inotify-tools
@@ -27,7 +27,7 @@ don't forget to install the required packages.
 
 on Ubuntu/Mint/Debian you can simply do:
 ```
-sudo apt-get install latex texlive-extra-utils xsel inotify-tools inkscape
+sudo apt-get install texlive texlive-full texlive-extra-utils xsel inotify-tools inkscape
 ```
 
 
