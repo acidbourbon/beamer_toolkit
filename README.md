@@ -53,6 +53,10 @@ chmod +x loop.sh
 ./loop.sh
 ```
 
+if the compilation gets stuck (on a syntax error or a missing file),
+you can either CTRL-C the whole loop - or (more elegantly)
+enter "x" + RETURN in the latex compiler promt.
+
 ### edit slides.tex
 Go ahead, fire up your favourite text editor and change some stuff in the tex file.
 The pdf output file slides.pdf should automatically update for every change.
