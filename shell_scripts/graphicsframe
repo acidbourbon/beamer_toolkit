@@ -1,0 +1,56 @@
+#!/bin/bash
+
+graphic1=$1
+graphic2=$2
+
+temp=$(mktemp)
+
+if [ -z "$graphic2" ]; then
+
+cat <<EOF > $temp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\begin{frame}
+\\frametitle{}
+
+\\begin{center}\\includegraphics[width=0.75\\textwidth]{$graphic1}\\end{center}
+
+\\begin{itemize}
+\item
+\\end{itemize}
+\\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+EOF
+
+else
+
+cat <<EOF > $temp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\begin{frame}
+\\frametitle{}
+
+
+\\begin{columns}
+  \\column{0.5\\textwidth}
+    \\begin{center}\\includegraphics[width=\\textwidth]{$graphic1}\\end{center}
+  \\column{0.5\\textwidth}
+    \\begin{center}\\includegraphics[width=\\textwidth]{$graphic2}\\end{center}
+\\end{columns}
+
+\\begin{itemize}
+\item
+\\end{itemize}
+\\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+EOF
+
+fi
+
+cat $temp
+cat $temp | xsel -ib
+rm $temp
+
+echo "... copied to clipboard"

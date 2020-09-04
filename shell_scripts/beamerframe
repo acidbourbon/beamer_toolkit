@@ -1,0 +1,23 @@
+#!/bin/bash
+
+frametitle=$@
+
+cat <<EOF | xsel -ib
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\begin{frame}
+\\frametitle{${frametitle}}
+
+\\begin{columns}
+  \\column{0.5\\textwidth}
+  \\column{0.5\\textwidth}
+\\end{columns}
+
+\\begin{itemize}
+\item
+\\end{itemize}
+\\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+EOF
+echo "... copied to clipboard"
