@@ -2,7 +2,7 @@
 
 
 ## try to open viewer on another display by default (on my windows pc)
-if [ $HOSTNAME == "hades53" ]; then export DISPLAY=depc361:0.0 ; fi
+#if [ $HOSTNAME == "hades53" ]; then export DISPLAY=depc361:0.0 ; fi
 
 
 
@@ -35,7 +35,9 @@ while [ 1 -eq 1 ]
 do
 
 
-
+if [ ! -e "$new" ]; then
+  > $new
+fi
 
 
 cat $new > $old
